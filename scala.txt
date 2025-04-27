@@ -1,0 +1,16 @@
+
+1. create input.txt
+
+2. Wordcount.scala
+
+val data= sc.textFile("input.txt")
+data.collect 
+val splitdata=data.flatMap(line=>line.split(" "))
+splitdata.collect
+val mapdata=splitdata.map(word=>(word, 1))
+mapdata.collect
+val reducedata=mapdata.reduceByKey( _ + _ )
+reducedata.collect
+
+3. SPARK_HOME/bin/spark-shell enter
+4. load wordcount.scala
